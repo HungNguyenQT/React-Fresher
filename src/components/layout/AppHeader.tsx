@@ -10,18 +10,24 @@ import {
 import './Header.scss';
 import logo from '../images/logo_1.jpg';
 import { useCurrentApp } from 'components/context/app.context';
+import { LogoutAPI } from '@/services/api';
 
 
 
 const AppHeader = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
-  const { isAuthenticated, user } = useCurrentApp();
+  const { isAuthenticated, user, setUser, setIsAuthenticated } = useCurrentApp();
 
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    //todo
+    const res = await LogoutAPI();
+    if (res.data) {
+      setUser(null);
+      setIsAuthenticated(false);
+      localStorage.removeItem("access_token");
+    }
   }
   let items = [
     {
@@ -92,17 +98,17 @@ const AppHeader = () => {
           }
         </li>
         <Drawer
-                title="Menu chức năng"
-                placement="left"
-                onClose={() => setOpenDrawer(false)}
-                open={openDrawer}
-            >
-                <p>Quản lý tài khoản</p>
-                <Divider />
+          title="Menu chức năng"
+          placement="left"
+          onClose={() => setOpenDrawer(false)}
+          open={openDrawer}
+        >
+          <p>Quản lý tài khoản</p>
+          <Divider />
 
-                <p>Đăng xuất</p>
-                <Divider />
-            </Drawer>
+          <p onClick={() => handleLogout()}>Đăng xuất</p>
+          <Divider />
+        </Drawer>
         {/* <div className="auth">         
             <LoginOutlined />
             <Link to="/login">Đăng Nhập</Link>

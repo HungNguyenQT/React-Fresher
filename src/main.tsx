@@ -15,10 +15,10 @@ import { App as AntdApp } from 'antd';
 import { AppProvider } from 'components/context/app.context';
 import ProtectedRoute from 'components/auth/Index';
 import LayoutAdmin from 'components/layout/layout.admin';
-import ManageBookPage from 'components/pages/manage.book';
-import DashBoardPage from 'components/pages/dashboard';
-import ManageOrderPage from 'components/pages/manage.order';
-import ManageUserPage from 'components/pages/manage.user';
+import ManageBookPage from '@/components/pages/admin/manage.book';
+import DashBoardPage from '@/components/pages/admin/dashboard';
+import ManageOrderPage from '@/components/pages/admin/manage.order';
+import ManageUserPage from '@/components/pages/admin/manage.user';
 
 
 const router = createBrowserRouter([

@@ -9,11 +9,12 @@ import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
 } from '@ant-design/icons';
-import { Layout, Menu, Dropdown, Space, Avatar } from 'antd';
+import { Layout, Menu, Dropdown, Space, Avatar, Result, Button } from 'antd';
 import { Outlet } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { useCurrentApp } from '../context/app.context';
 import type { MenuProps } from 'antd';
+import { LogoutAPI } from '@/services/api';
 type MenuItem = Required<MenuProps>['items'][number];
 
 const { Content, Footer, Sider } = Layout;
@@ -22,11 +23,16 @@ const { Content, Footer, Sider } = Layout;
 const LayoutAdmin = () => {
     const [collapsed, setCollapsed] = useState(false);
     const [activeMenu, setActiveMenu] = useState('dashboard');
-    const { user } = useCurrentApp();
+    const { user, setUser, setIsAuthenticated, isAuthenticated } = useCurrentApp();
 
 
     const handleLogout = async () => {
-        //todo
+        const res = await LogoutAPI();
+        if (res.data) {
+            setUser(null);
+            setIsAuthenticated(false);
+            localStorage.removeItem("access_token");
+        }
     }
 
     const items: MenuItem[] = [
@@ -89,6 +95,23 @@ const LayoutAdmin = () => {
 
     const urlAvatar = `${import.meta.env.VITE_BACKEND_URL}/images/avatar/${user?.avatar}`;
 
+    if (isAuthenticated === false) {
+        return (
+            <Outlet />
+        )
+    }
+
+    const isAdminRoute = location.pathname.includes("admin");
+    if (isAuthenticated === true && isAdminRoute === true) {
+        const role = user?.role;
+        if (role === "USER") {
+            return (
+                <Outlet />
+            )
+        }
+    }
+
+
     return (
         <>
             <Layout
@@ -137,7 +160,7 @@ const LayoutAdmin = () => {
                         <Outlet />
                     </Content>
                     <Footer style={{ padding: 0, textAlign: "center" }}>
-                        React Test Fresher &copy; Hỏi Dân IT - Made with <HeartTwoTone />
+                        React Test Fresher &copy;  <HeartTwoTone />
                     </Footer>
                 </Layout>
             </Layout>
