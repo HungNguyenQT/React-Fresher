@@ -1,0 +1,80 @@
+.custom-footer {
+    background-color: #1c1c1c;
+    color: #fff;
+    padding: 40px;
+    .logo {
+        img {
+          height: 60px;
+          border-radius: 50%;
+        }
+      }
+    .logo-title {
+      color: #fff;
+      margin-bottom: 0;
+  
+      .logo-highlight {
+        color: #f5d382;
+        font-weight: bold;
+      }
+    }
+  
+    .tagline {
+      color: #ccc;
+    }
+  
+    .contact-info {
+      margin-top: 20px;
+      p {
+        margin: 0 0 8px 0;
+        color: #ccc;
+  
+        a {
+          color: #ccc;
+          text-decoration: underline;
+        }
+      }
+    }
+  
+    .section-title {
+      color: #fff;
+    }
+  
+    .link-group a {
+      color: #ccc;
+  
+      &:hover {
+        color: #f5d382;
+      }
+    }
+  
+    .social-icons {
+      margin-top: 12px;
+  
+      .anticon {
+        font-size: 24px;
+        color: #fff;
+        transition: color 0.3s;
+  
+        &:hover {
+          color: #f5d382;
+        }
+      }
+    }
+  
+    .payment-section {
+      margin-top: 24px;
+  
+      img {
+        height: 40px;
+        margin-right: 12px;
+      }
+    }
+  
+    .footer-bottom {
+      margin-top: 40px;
+      text-align: center;
+      color: #aaa;
+      font-size: 14px;
+    }
+  }
+  

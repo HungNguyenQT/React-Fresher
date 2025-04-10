@@ -1,0 +1,51 @@
+ 
+  .register-container {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px 30px;
+    border-radius: 10px;
+    width: 350px;
+    color: #fff;
+    text-align: center;
+  
+    h2 {
+      margin-bottom: 25px;
+      font-size: 24px;
+      color: #fff;
+    }
+    label{
+        color: #fff!important;
+    }
+  
+    form {
+      width: 100%;
+      .register-btn {
+        width: 100%;
+        background-color: #f64c72;
+        border: none;
+        font-size: 16px;
+      }
+      
+    }
+    .ant-divider-inner-text {
+        color: #ccc;
+        font-size: 13px;
+        font-weight: 500;
+        background-color: transparent;
+      }
+    .login-redirect {
+      text-align: center;
+      font-size: 14px;
+      color: #ccc;
+    
+      a {
+        color: #8ab4f8;
+        font-weight: 500;
+        text-decoration: none;
+    
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  
