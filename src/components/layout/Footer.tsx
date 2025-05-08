@@ -21,15 +21,15 @@ const Footers = () => {
       <Row gutter={[32, 32]}>
         <Col xs={24} md={8}>
           <div className="logo-section">
-          <div className="logo">
-                <img src={logo} alt="Wine House" />
-                {/* bạn có thể thay logo bằng text nếu cần */}
+            <div className="logo">
+              <img src={logo} alt="Wine House" />
+              {/* bạn có thể thay logo bằng text nếu cần */}
             </div>
             <Text className="tagline">Lựa chọn số 1 cho bạn</Text>
           </div>
           <div className="contact-info">
-            <p><EnvironmentOutlined /> Tầng 6 - Tòa nhà Ladeco - 266 Đội Cấn, Phường Liễu Giai - Quận Ba Đình - TP Hà Nội</p>
-            <p><PhoneOutlined /> Tổng đài: 19006750</p>
+            <p><EnvironmentOutlined /> Hải Lăng Quảng Trị</p>
+            <p><PhoneOutlined /> Tổng đài: 0767412036</p>
             <p><MailOutlined /> Email: <a href="mailto:support@sapo.vn">support@sapo.vn</a></p>
           </div>
         </Col>
@@ -67,7 +67,7 @@ const Footers = () => {
         </Col>
       </Row>
       <div className="footer-bottom">
-        © Bản quyền thuộc về HungITFE 
+        © Bản quyền thuộc về HungITFE
       </div>
     </Footer>
   );

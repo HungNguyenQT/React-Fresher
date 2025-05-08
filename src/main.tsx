@@ -11,14 +11,16 @@ import LoginPage from 'pages/client/auth/Login.tsx';
 import RegisterPage from 'pages/client/auth/Register.tsx';
 import './styles/global.scss';
 import HomePage from './pages/client/Home';
-import { App as AntdApp } from 'antd';
+import { App as AntdApp, ConfigProvider } from 'antd';
 import { AppProvider } from 'components/context/app.context';
 import ProtectedRoute from 'components/auth/Index';
 import LayoutAdmin from 'components/layout/layout.admin';
-import ManageBookPage from '@/components/pages/admin/manage.book';
-import DashBoardPage from '@/components/pages/admin/dashboard';
-import ManageOrderPage from '@/components/pages/admin/manage.order';
-import ManageUserPage from '@/components/pages/admin/manage.user';
+import ManageBookPage from '@/components/pages/admin/ManageBook';
+import DashBoardPage from '@/components/pages/admin/DashBoard';
+import ManageOrderPage from '@/components/pages/admin/ManageOrder';
+import ManageUserPage from '@/components/pages/admin/ManageUser';
+import enUS from 'antd/es/calendar/locale/en_US';
+import viVN from 'antd/locale/vi_VN';
 
 
 const router = createBrowserRouter([
@@ -110,7 +112,9 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <AntdApp>
       <AppProvider>
-        <RouterProvider router={router} />
+        <ConfigProvider locale={viVN}>
+          <RouterProvider router={router} />
+        </ConfigProvider>
       </AppProvider>
     </AntdApp>
   </StrictMode>,
